@@ -4,12 +4,15 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {
-    getItems,
-    deleteItem
-} from '../actions/itemActions';
+import { getItems, deleteItem } from '../actions/itemActions';
 
 class ShoppingList extends Component {
+
+    static propTypes = {
+        getItems: PropTypes.func.isRequired,
+        item: PropTypes.object.isRequired,
+        isAuthenticated: PropTypes.bool
+    };
 
     onDeleteClick = (id) => {
         this.props.deleteItem(id);
@@ -44,12 +47,6 @@ class ShoppingList extends Component {
             </Container>
         );
     }
-}
-
-ShoppingList.propTypes = {
-    getItems: PropTypes.func.isRequired,
-    deleteItem: PropTypes.func,
-    item: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({ 
