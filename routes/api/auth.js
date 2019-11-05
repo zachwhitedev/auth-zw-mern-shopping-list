@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
+const auth = require('../../middleware/auth');
 const jwtSecret = process.env.JWT_SECRET;
 
 // Item Model
@@ -38,5 +39,12 @@ if (!user) return res.status(400).json({ msg: 'User does not exist.' });
         })
   });
 });
+
+// get user data
+router.get('/user', auth, (req, res) => {
+    User.findById(req.user.id)  
+        .select('-password')
+        .then(user => res.json(user));  
+})
 
 module.exports = router;

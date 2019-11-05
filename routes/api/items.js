@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
         .then(items => res.json(items))
 });
 
+
+// add item (private route)
 router.post('/', auth, (req, res) => {
     const newItem = new Item({
         name: req.body.name
