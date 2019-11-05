@@ -3,13 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
-const jwt = require('jsonwebtoken');
 
 
 const app = express();
 dotenv.config();
 const uri = process.env.MONGODB_URI;
-const jwtSecret = process.env.jwtSecret;
 
 // Bodyparser Middleware
 app.use(express.json());
@@ -30,7 +28,7 @@ mongoose
 // Use Routes
 app.use('/api/items', require('./routes/api/items'));
 app.use('/api/users', require('./routes/api/users'));
-
+app.use('/api/auth', require('./routes/api/auth'))
 
 // Serve static assests if in production
 if(process.env.NODE_ENV === 'production') {
