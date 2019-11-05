@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
+const jwt = require('jsonwebtoken');
 
 
 const app = express();
 dotenv.config();
 const uri = process.env.MONGODB_URI;
+const jwtSecret = process.env.jwtSecret;
 
 // Bodyparser Middleware
 app.use(express.json());
