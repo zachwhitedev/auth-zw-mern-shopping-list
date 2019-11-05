@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
 
 
 const app = express();
@@ -11,7 +10,7 @@ dotenv.config();
 const uri = process.env.MONGODB_URI;
 
 // Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 //Cors Middleare
 app.use(cors());
@@ -28,6 +27,7 @@ mongoose
 
 // Use Routes
 app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
 
 
 // Serve static assests if in production
