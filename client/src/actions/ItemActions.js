@@ -5,11 +5,12 @@ export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios
         .get('/api/items')
-        .then(res => 
+        .then((res) => {
             dispatch({
                 type: GET_ITEMS,
                 payload: res.data
             })
+            }
         )
 }
 
@@ -27,10 +28,12 @@ export const deleteItem = (id) => dispatch => {
 export const addItem = (newItem) => dispatch => {
    axios
     .post('/api/items', newItem)
-    .then(res => dispatch({
+    .then((res) => {
+        dispatch({
         type: ADD_ITEM,
         payload: res.data
-    }))
+    })
+})
 }
 
 export const setItemsLoading = () => {

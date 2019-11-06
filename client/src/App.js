@@ -7,17 +7,14 @@ import { Container } from 'reactstrap';
 
 import { Provider } from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/authActions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props);
-
-      this.state = {
-        name: ''
-      }
+  componentDidMount(){
+    store.dispatch(loadUser());
   }
 
   render(){
