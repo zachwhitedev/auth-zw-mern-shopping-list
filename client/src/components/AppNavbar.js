@@ -34,7 +34,6 @@ class AppNavbar extends Component {
                             <Nav className='ml-auto' navbar>
                                 <NavItem>
                                     <RegisterModal />
-                                    <NavLink href='https://www.zachwhite.dev'>Portfolio</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

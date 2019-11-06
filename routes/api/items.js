@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 
 // add item (private route)
 router.post('/', (req, res) => {
+    
   const newItem = new Item({
     name: req.body.name
   });

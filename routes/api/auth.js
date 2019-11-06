@@ -25,7 +25,7 @@ if (!user) return res.status(400).json({ msg: 'User does not exist.' });
         .then(isMatch => {
             if(!isMatch) return res.status(400).json({ msg: 'Invalid credentials' });
 
-            jwt.sign({ id: user.id }, jwtSecret, { expiresIn: 86400 }, (err, token) => {
+            jwt.sign({ id: user.id }, jwtSecret, { expiresIn: 3600 }, (err, token) => {
                 if (err) throw err;
                 res.json({
                   token,
