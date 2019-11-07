@@ -60,7 +60,7 @@ class AppNavbar extends Component {
       <div>
         <Navbar color='dark' dark expand='sm' className='mb-5'>
           <Container>
-            <NavbarBrand href='/'>Zach's List</NavbarBrand>
+            <NavbarBrand href='/'>Zach's Random List</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className='ml-auto' navbar>
